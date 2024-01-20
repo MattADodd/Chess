@@ -20,8 +20,17 @@ public class Board {
     }
 
     // Method to perform a chess piece movement (not implemented in this code)
-    public void movePiece() {
-        // To be implemented
+    public void movePiece(String columnLetter, int row, int[] location) {
+        int[] newPosition = new int[2];
+        newPosition[0] = row;
+        newPosition[1] = columns.get(columnLetter);
+        Piece piece = state[location[0]][location[1]];
+        piece.move(location, newPosition, state);
+        if (piece.getCanMove()) {
+            state[location[0]][location[1]] = null;
+            state[row][columns.get(columnLetter)] = piece;
+        }
+        //else System.out.printerrormsg
     }
 
     // Method to convert column letter and row number to array indices
@@ -132,4 +141,6 @@ public class Board {
         columns.put("G", 6);
         columns.put("H", 7);
     }
+    
+    
 }

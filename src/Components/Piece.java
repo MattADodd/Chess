@@ -5,7 +5,7 @@ public class Piece {
     private boolean isWhite = true;
     private boolean canMove = true;
     
-    public void move(Piece[][] position) {
+    public void move(int[] position, int[] newPosition, Piece[][] state) {
         
     }
     
@@ -19,6 +19,18 @@ public class Piece {
     
     public boolean getColour() {
         return isWhite;
+    }
+    
+    public void noMove() {
+        canMove = false;
+    }
+    
+    public void yesMove() {
+        canMove = true;
+    }
+    
+    public boolean getCanMove() {
+        return canMove;
     }
 }
 
